@@ -29,3 +29,4 @@ end
 
 gem "activeadmin", github: "activeadmin/activeadmin", ref: "6105d6bd6e021555890a57d60a8ad01404d1485b"
 gem "active_material", github: "vigetlabs/active_material", ref: "e91faafcb016477637330ea593673cd521c60aa9"
+gem 'turbo-rails', '~> 0.5.9'
