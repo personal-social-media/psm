@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  ActiveAdmin.routes(self)
+
+  match "/*match", to: "static#not_signed_in_404", via: :all, constraints: ->(req) do
+      req.path.exclude?("packs") &&
+      req.path.exclude?("rails")
+  end
 end
