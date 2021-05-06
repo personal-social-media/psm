@@ -11,14 +11,13 @@ ActiveAdmin.setup do |config|
 
   config.namespace :dashboard do |dashboard|
     dashboard.site_title_link = "/dashboard"
+
+    dashboard.build_menu :utility_navigation do |menu|
+      ActiveAdminService::UserMenu.new(menu, dashboard).call
+    end
   end
 
   config.logout_link_path = nil
 
   config.localize_format = :long
-
-  # config.footer = ->(_) { render "admin/footer" }
-end
-Rails.application.reloader.to_prepare do
-  ActiveAdminService::LayoutExtension.load
 end

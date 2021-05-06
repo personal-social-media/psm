@@ -1,6 +1,10 @@
+import "../dashboard-stylesheets/main.scss";
+import {startTurbo} from "../lib/start-turbo";
+import "../dashboard/load-all";
 import Rails from "@rails/ujs"
-import "@hotwired/turbo-rails"
+import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-Rails.start()
-
+ActiveStorage.start()
+startTurbo();
+Rails.start();

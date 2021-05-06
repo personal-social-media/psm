@@ -19,6 +19,16 @@ class Profile < ApplicationRecord
   has_secure_password :pin, validations: false
   before_validation :pk, on: :create
 
+  class << self
+    def current
+      Thread.current[:current_user] ||= Profile.first
+    end
+
+    def current_controller
+      Thread.current[:current_user_controller]
+    end
+  end
+
   def private_key
     @private_key ||= RbNaCl::PrivateKey.new(pk)
   end
