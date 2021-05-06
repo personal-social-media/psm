@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.setup do |config|
   config.comments = false
   config.batch_actions = false
@@ -17,5 +19,6 @@ ActiveAdmin.setup do |config|
 
   # config.footer = ->(_) { render "admin/footer" }
 end
-
-ActiveAdminService::LayoutExtension.initial_load
+Rails.application.reloader.to_prepare do
+  ActiveAdminService::LayoutExtension.load
+end

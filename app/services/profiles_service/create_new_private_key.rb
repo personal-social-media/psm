@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ProfilesService
   class CreateNewPrivateKey
     def call

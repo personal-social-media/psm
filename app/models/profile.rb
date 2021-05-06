@@ -1,16 +1,22 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: profiles
 #
-#  id            :bigint           not null, primary key
-#  email         :string
-#  name          :string
-#  pk_ciphertext :text
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id                     :bigint           not null, primary key
+#  email                  :string
+#  master_password_digest :text             not null
+#  name                   :string
+#  pin_digest             :string           not null
+#  pk_ciphertext          :text
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 class Profile < ApplicationRecord
   encrypts :pk, type: :binary
+  has_secure_password :master_password, validations: false
+  has_secure_password :pin, validations: false
   before_validation :pk, on: :create
 
   def private_key
@@ -18,8 +24,7 @@ class Profile < ApplicationRecord
   end
 
   private
-
-  def generate_private_key
-    self.pk ||= ProfilesService::CreateNewPrivateKey.new.call
-  end
+    def generate_private_key
+      self.pk ||= ProfilesService::CreateNewPrivateKey.new.call
+    end
 end

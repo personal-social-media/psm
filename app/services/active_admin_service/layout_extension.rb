@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 module ActiveAdminService
   class LayoutExtension
-    def self.initial_load; end
-
     def self.load
       layout_override = Module.new do
         def build_active_admin_head
@@ -21,4 +21,3 @@ module ActiveAdminService
     end
   end
 end
-ActiveAdminService::LayoutExtension.load

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_025234) do
+ActiveRecord::Schema.define(version: 2021_05_06_033714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_025234) do
     t.text "pk_ciphertext"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "master_password_digest", null: false
+    t.string "pin_digest", null: false
   end
 
 end
