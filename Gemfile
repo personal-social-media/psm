@@ -25,6 +25,13 @@ end
 
 group :development do
   gem 'foreman', '~> 0.87.2'
+  gem 'annotate', '~> 3.1', '>= 3.1.1'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 gem "activeadmin", github: "activeadmin/activeadmin", ref: "6105d6bd6e021555890a57d60a8ad01404d1485b"
