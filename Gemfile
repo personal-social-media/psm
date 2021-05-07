@@ -10,7 +10,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 6.1.3", ">= 6.1.3.1"
 gem "sass-rails", ">= 6"
-gem 'webpacker', '~> 6.0.0.beta.2'
+gem "webpacker", "~> 6.0.0.beta.2"
 
 gem "bootsnap", ">= 1.4.4", require: false
 
@@ -19,7 +19,10 @@ group :development, :test do
 end
 
 group :development do
+  gem "guard", "~> 2.16", ">= 2.16.2"
+  gem "guard-livereload", "~> 2.5", require: false
   gem "listen", "~> 3.3"
+  gem "rack-livereload", "~> 0.3.17"
   gem "web-console", ">= 4.1.0"
 end
 

@@ -38,3 +38,6 @@ module Psm
     config.generators.system_tests = nil
   end
 end
+
+# special envs
+Webpacker::Compiler.env["TAILWIND_MODE"] = "build"

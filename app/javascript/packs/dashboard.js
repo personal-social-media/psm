@@ -1,4 +1,5 @@
 import "../dashboard-stylesheets/main.scss";
+import "../dashboard-stylesheets/tailwind.css";
 import {startTurbo} from "../lib/start-turbo";
 import "../dashboard/load-all";
 import Rails from "@rails/ujs"
